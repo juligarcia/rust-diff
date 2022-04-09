@@ -1,0 +1,5 @@
+fn main() {
+  let var = 1;
+  let var2 = 0;
+  let var3 = 3;
+}
