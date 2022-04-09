@@ -1,5 +1,5 @@
-pub use self::diff::Diff;
+pub use self::main::Diff;
 pub use self::lines::Lines;
 
-mod diff;
+mod main;
 mod lines;

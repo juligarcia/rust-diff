@@ -10,7 +10,7 @@ fn main() {
     let args: Vec<String> = env::args().collect();
 
     if args.len() != 3 {
-        println!("Use: ./program {} {}", "file_name_1", "file_name_2");
+        println!("Use: ./program file_name_1 file_name_2");
         process::exit(1);
     }
 

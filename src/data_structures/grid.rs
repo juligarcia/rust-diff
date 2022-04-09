@@ -13,7 +13,7 @@ impl<T: Clone + Display> Display for Grid<T> {
         write!(f, " {} ", col)?;
       }
 
-      write!(f, "\n")?;
+      writeln!(f)?;
     }
 
     return write!(f, "");
@@ -32,7 +32,7 @@ impl<T: Clone + Display> Grid<T> {
       }
     }
 
-    Self { grid: grid }
+    Self { grid }
   }
 
   pub fn write(&mut self, x: usize, y: usize, new_value: T) {

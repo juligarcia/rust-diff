@@ -27,7 +27,7 @@ impl File {
     Diff::new(self, external_file).get_diff()
   }
 
-  pub fn compare_line(&self, index: usize, line: &String) -> bool {
+  pub fn compare_line(&self, index: usize, line: &str) -> bool {
     self.lines[index] == *line
   }
 
@@ -38,6 +38,6 @@ impl File {
 
 impl Display for File {
   fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-    write!(f, "{}", "")
+    write!(f, "{}", self.lines.join("\n"))
   }
 }

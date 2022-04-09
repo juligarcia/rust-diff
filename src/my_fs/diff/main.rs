@@ -31,11 +31,7 @@ impl<'a> Diff<'a> {
       }
     }
 
-    Self {
-      grid: grid,
-      file1,
-      file2,
-    }
+    Self { grid, file1, file2 }
   }
 
   pub fn get_diff(&self) -> String {
@@ -47,7 +43,7 @@ impl<'a> Diff<'a> {
       return format!(
         "{}\n  {}",
         self.get_diff_recursive(i - 1, j - 1),
-        Lines::Line {
+        Lines::Persistent {
           content: self.file1.get_line(i - 1).clone()
         }
       );
@@ -57,7 +53,7 @@ impl<'a> Diff<'a> {
       return format!(
         "{}\n{}",
         self.get_diff_recursive(i, j - 1),
-        Lines::AddedLine {
+        Lines::New {
           content: self.file2.get_line(j - 1).clone()
         }
       );
@@ -67,12 +63,12 @@ impl<'a> Diff<'a> {
       return format!(
         "{}\n{}",
         self.get_diff_recursive(i - 1, j),
-        Lines::RemovedLine {
+        Lines::Deleted {
           content: self.file1.get_line(i - 1).clone()
         }
       );
     }
 
-    return String::new();
+    String::new()
   }
 }
